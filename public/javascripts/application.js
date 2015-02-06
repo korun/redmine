@@ -5,6 +5,20 @@ function checkAll(id, checked) {
   $('#'+id).find('input[type=checkbox]:enabled').prop('checked', checked);
 }
 
+function subtasksFilter(){
+  var subtasks_checkbox = $("input#subtask_toggle");
+  var subtasks = $('table.list.issues tr td > a.closed').closest('tr');
+
+  subtasks_checkbox.on("click", function(){
+    var showOrHide = $(this).prop('checked');
+    $.cookie($(this).attr('name'), showOrHide);
+    subtasks.toggle(!showOrHide);
+  });
+  var showOrHide = ($.cookie("subtask_toggle") == "true");
+  subtasks.toggle(!showOrHide);
+  subtasks_checkbox.prop("checked", showOrHide);
+}
+
 function toggleCheckboxesBySelector(selector) {
   var all_checked = true;
   $(selector).each(function(index) {
@@ -604,6 +618,7 @@ function toggleDisabledInit() {
 }
 $(document).ready(function(){
   $('#content').on('change', 'input[data-disables], input[data-enables]', toggleDisabledOnChange);
+  subtasksFilter();
   toggleDisabledInit();
 });
 

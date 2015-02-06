@@ -93,7 +93,15 @@ end %>
 <div class="contextual">
   <%= link_to_new_subtask(@issue) if User.current.allowed_to?(:manage_subtasks, @project) %>
 </div>
-<p><strong><%=l(:label_subtask_plural)%></strong></p>
+
+<p>
+  <strong>
+    <%=l(:label_subtask_plural)%>
+  </strong>
+  <%= check_box_tag "subtask_toggle", nil, false, id: "subtask_toggle" %>
+  <span>скрыть закрытые</span>
+</p>
+  
 <%= render_descendants_tree(@issue) unless @issue.leaf? %>
 </div>
 <% end %>
