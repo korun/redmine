@@ -18,6 +18,9 @@ module RedmineApp
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
 
+    # Use redis as cache store
+    config.cache_store = :redis_store, 'redis://127.0.0.1:6379/0/redmine_cache', {expires_in: 90.minutes}
+
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -52,7 +55,7 @@ module RedmineApp
     # Do not include all helpers
     config.action_controller.include_all_helpers = false
 
-    config.session_store :cookie_store, :key => '_redmine_session'
+    config.session_store :redis_store
 
     if File.exists?(File.join(File.dirname(__FILE__), 'additional_environment.rb'))
       instance_eval File.read(File.join(File.dirname(__FILE__), 'additional_environment.rb'))
