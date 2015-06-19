@@ -85,6 +85,7 @@ module IssuesHelper
             content_tag('th', t('field_issue')) +
             content_tag('th', t('field_status')) +
             content_tag('th', t('field_assigned_to')) +
+            content_tag('th', t('field_start_date')) +
             content_tag('th', t('field_due_date')) +
             content_tag('th', t('field_done_ratio'))
     )
@@ -96,6 +97,7 @@ module IssuesHelper
              content_tag('td', link_to_issue(child, :truncate => 60, :project => (issue.project_id != child.project_id)), :class => 'subject') +
              content_tag('td', h(child.status)) +
              content_tag('td', link_to_user(child.assigned_to)) +
+             content_tag('td', format_date(child.start_date)) +
              content_tag('td', format_date(child.due_date)) +
              content_tag('td', progress_bar(child.done_ratio, :width => '80px')),
              :class => css)
