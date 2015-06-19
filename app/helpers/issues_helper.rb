@@ -79,6 +79,15 @@ module IssuesHelper
 
   def render_descendants_tree(issue)
     s = '<form><table class="list issues">'
+    s << content_tag(
+        'tr',
+        content_tag('td', '#', :class => 'checkbox') +
+            content_tag('th', t('field_issue')) +
+            content_tag('th', t('field_status')) +
+            content_tag('th', t('field_assigned_to')) +
+            content_tag('th', t('field_due_date')) +
+            content_tag('th', t('field_done_ratio'))
+    )
     issue_list(issue.descendants.visible.sort_by(&:lft)) do |child, level|
       css = "issue issue-#{child.id} hascontextmenu"
       css << " idnt idnt-#{level}" if level > 0
@@ -87,6 +96,7 @@ module IssuesHelper
              content_tag('td', link_to_issue(child, :truncate => 60, :project => (issue.project_id != child.project_id)), :class => 'subject') +
              content_tag('td', h(child.status)) +
              content_tag('td', link_to_user(child.assigned_to)) +
+             content_tag('td', format_date(child.due_date)) +
              content_tag('td', progress_bar(child.done_ratio, :width => '80px')),
              :class => css)
     end
