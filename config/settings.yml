@@ -56,7 +56,7 @@ activity_days_default:
 per_page_options:
   default: '25,50,100'
 mail_from:
-  default: redmine@progresspoint.ru
+  default: redmine@example.net
 bcc_recipients:
   default: 1
 plain_text_mail:
@@ -68,13 +68,13 @@ cache_formatted_text:
 wiki_compression:
   default: ""
 default_language:
-  default: ru
+  default: en
 force_default_language_for_anonymous:
   default: 0
 force_default_language_for_loggedin:
   default: 0
 host_name:
-  default: redmine.progresspoint.ru
+  default: localhost:3000
 protocol:
   default: http
 feeds_limit:
@@ -94,7 +94,11 @@ diff_max_lines_displayed:
 enabled_scm:
   serialized: true
   default:
+  - Subversion
+  - Darcs
   - Mercurial
+  - Cvs
+  - Bazaar
   - Git
 autofetch_changesets:
   default: 1
@@ -179,7 +183,7 @@ default_projects_modules:
   - gantt
 default_projects_tracker_ids:
   serialized: true
-  default: 
+  default:
 # Role given to a non-admin user who creates a project
 new_project_user_role_id:
   format: int
