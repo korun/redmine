@@ -40,4 +40,4 @@
 
 /.bundle
 /Gemfile.lock
-/Gemfile.local
+# /Gemfile.local

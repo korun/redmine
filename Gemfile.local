@@ -1,0 +1,7 @@
+gem "thin"
+gem "redmine_github_hook"
+gem 'redis-rails'
+
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+end
