@@ -4,10 +4,6 @@
 # You can define all roles on a single server, or split them:
 
 server '10.0.12.208', user: 'redmine', roles: %w{app db web}
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
-
-
 
 # role-based syntax
 # ==================
@@ -21,8 +17,6 @@ server '10.0.12.208', user: 'redmine', roles: %w{app db web}
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -31,7 +25,10 @@ server '10.0.12.208', user: 'redmine', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
+# https://github.com/capistrano/rvm
+set :rvm_type,         :user            # Defaults to: :auto
+set :rvm_ruby_version, '2.1.5'          # Defaults to: 'default'
+# set :rvm_custom_path, '~/.myveryownrvm' # only needed if not detected
 
 # Custom SSH Options
 # ==================
