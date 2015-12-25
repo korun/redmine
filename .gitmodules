@@ -1,0 +1,9 @@
+[submodule "plugins/redmine_parent_issue_filter"]
+	path = plugins/redmine_parent_issue_filter
+	url = git@github.com:progresspoint/redmine-parent-issue-filter.git
+[submodule "plugins/redmine_gitlab_hook"]
+	path = plugins/redmine_gitlab_hook
+	url = git@github.com:progresspoint/redmine_gitlab_hook.git
+[submodule "plugins/redmine_sidekiq"]
+	path = plugins/redmine_sidekiq
+	url = git@github.com:ogom/redmine_sidekiq.git
